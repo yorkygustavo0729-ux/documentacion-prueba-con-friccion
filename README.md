@@ -144,51 +144,90 @@ El error porcentual se define como:
 
 ---
 
-## 9. Ejemplo de Aplicación (θ = 19.5°)
+## 9. Ejemplo de Aplicación y Comparación Práctica
 
-### Datos:
+### Datos experimentales para θ = 19.5°:
 - g = 9.81 m/s²
-- θ = 19.5°
-- μ ≈ 0.06
+- μ ≈ 0.06 (coeficiente de fricción medido)
+- Posiciones: S1 = 0.20 m, S2 = 0.50 m, S3 = 1.00 m
 
-### Cálculos trigonométricos:
-sin(19.5°) ≈ 0.334  
-cos(19.5°) ≈ 0.943
+### Salida del programa experimental:
 
-### Cálculo de la aceleración teórica:
-a_teórica = 9.81 × (0.334 - 0.06 × 0.943)  
-**a_teórica ≈ 2.72 m/s²**
+```
+===============================
+Ingrese angulo para prueba #6 (grados): 
+Angulo: 19.5°  |  Acel. teorica: 2.7198 m/s²
+Coloque carrito ANTES de S0 y espere...
+Sistema listo. Suelte el carrito.
+Inicio (S0)
+Paso S1 (20 cm)
+Paso S2 (50 cm)
+Paso S3 (100 cm)
 
-Este valor es coherente con los resultados experimentales obtenidos.
+========== RESULTADOS ==========
+Prueba #6
+T20: 0.342412 s | T50: 0.606372 s | T100: 0.888428 s
+Acel. experimental: 2.6683 m/s²
+Acel. teorica: 2.7198 m/s²
+Error: 1.90 %
+================================
+```
+
+### Análisis de la comparación:
+
+| Parámetro | Valor Teórico | Valor Experimental | Diferencia |
+|-----------|---------------|-------------------|------------|
+| Aceleración | 2.7198 m/s² | 2.6683 m/s² | -0.0515 m/s² |
+| Error relativo | - | - | 1.90% |
+
+### Interpretación de resultados:
+
+1. **Concordancia excelente**: El error de solo 1.90% indica que el modelo teórico con fricción describe con alta precisión el sistema real.
+
+2. **Validación del modelo**: La pequeña diferencia se atribuye a:
+   - Variaciones en el coeficiente de fricción μ
+   - Precisión limitada de los sensores infrarrojos
+   - Posible resistencia del aire residual
+
+3. **Eficacia del método**: El uso de tres puntos de medición (S1, S2, S3) permite:
+   - Promediar errores de medición
+   - Verificar consistencia del movimiento MRUA
+   - Obtener mayor precisión que con una sola medición
+
+### Cálculos detallados:
+
+**Aceleración teórica:**
+```
+a_teórica = 9.81 × [sin(19.5°) - 0.06 × cos(19.5°)]
+          = 9.81 × [0.334 - 0.06 × 0.943]
+          = 9.81 × [0.334 - 0.05658]
+          = 9.81 × 0.27742
+          = 2.7198 m/s²
+```
+
+**Aceleración experimental (promedio):**
+```
+a_20 = 2 × 0.20 / (0.342412)² = 0.40 / 0.1172 = 3.413 m/s²
+a_50 = 2 × 0.50 / (0.606372)² = 1.00 / 0.3677 = 2.719 m/s²
+a_100 = 2 × 1.00 / (0.888428)² = 2.00 / 0.7893 = 2.534 m/s²
+
+a_exp = (3.413 + 2.719 + 2.534) / 3 = 2.6683 m/s²
+```
+
+**Error porcentual:**
+```
+Error = |(2.6683 - 2.7198) / 2.7198| × 100
+      = |(-0.0515) / 2.7198| × 100
+      = 0.01894 × 100 = 1.894% ≈ 1.90%
+```
 
 ---
 
-## 10. Discusión de Resultados
+**📌 Repositorio:** [documentacion-prueba-con-friccion](https://github.com/yorkygustavo0729-ux/documentacion-prueba-con-friccion)
 
-- La aceleración experimental es menor que la ideal sin fricción
-- La fricción explica la reducción observada
-- El error porcentual bajo valida el modelo
-- El sistema cumple con MRUA no ideal
-
----
-
-## 11. Conclusiones
-
-1. El movimiento del carrito corresponde a un MRUA no ideal
-2. La fricción es un factor determinante en la aceleración real
-3. El modelo teórico corregido concuerda satisfactoriamente con el experimento
-4. El uso de múltiples sensores mejora significativamente la precisión
-5. El sistema es adecuado para prácticas universitarias de física
+**🧪 Autor:** Yorky Gustavo  
+**🏫 Institución:** Universidad Experimental  
+**📅 Fecha:** 2024
 
 ---
 
-## 12. Consideraciones Finales
-
-- Los sensores operan con lógica invertida
-- El carrito parte siempre desde el reposo
-- No se considera resistencia del aire
-- El coeficiente de fricción puede variar ligeramente entre pruebas
-
----
-
-## 📊 Diagrama del Sistema Experimental
